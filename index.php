@@ -28,7 +28,7 @@
     <!-- How to make Navigation in Bootstrap  -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
       <div class="container">
-        <a class="navbar-brand" href="index.html"> Jean Forteroche </a>
+        <a class="navbar-brand" href="index.php"> Jean Forteroche </a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           Menu
           <i class="fas fa-bars"></i>
@@ -69,6 +69,25 @@
     <!-- Main Content -->
     <div class="container">
    
+    <?php
+        // Connexion à la base de données
+        try
+        {
+            $bdd = new PDO('mysql:host=localhost;dbname=project-blog;charset=utf8', 'root', '');
+        }
+        catch(Exception $e)
+        {
+                die('Erreur : '.$e->getMessage());
+        }
+
+        // On récupère les 5 derniers billets
+        $req = $bdd->query('SELECT id, titre, contenu, DATE_FORMAT(date_creation, \'%d/%m/%Y à %Hh%imin%ss\') AS date_creation_fr FROM livres ORDER BY date_creation DESC LIMIT 0, 5');
+
+        while ($donnees = $req->fetch())
+        {
+    ?>
+
+
       <div class="row">
           <div class="col-lg-8 col-md-10 mx-auto">
                 <div class="post-preview">
@@ -76,24 +95,34 @@
                 <a href="post.html">
                 <img src="img/Book.png" class="col-sm-5 float-left" alt>
                     <h2 class="post-title">
-                    Billet simple pour l'Alaska
+                    <?php echo htmlspecialchars($donnees['titre']); ?>
+                    
                     </h2>
                     <h3 class="post-subtitle">
-                        Problems look mighty small from 150 miles up
+                    <?php
+                        // On affiche le contenu du billet
+                        echo nl2br(htmlspecialchars($donnees['contenu']));
+                        ?>
                     </h3>
                     </a>
-                    <p class="post-meta">Posted by
-                    <a href="#">Start Bootstrap</a>
-                    on September 24, 2018</p>
+                    <p class="post-meta">Créé par
+                    <a href="#">Jean Forteroche</a>
+                    <em>le <?php echo $donnees['date_creation_fr']; ?></em></p>
                 </div>
+                <em><a href="comments.php?billet=<?php 
+                echo $donnees['id']; ?>">comments</a></em>
                 
+
                 <hr>
             </div>
       </div>
     </div>
 
     <hr>
-
+            <?php
+        } // Fin de la boucle des billets
+        $req->closeCursor();
+        ?>
     <!-- Footer -->
     <footer>
       <div class="container">
