@@ -52,26 +52,6 @@
       </div>
     </nav>
 
-    <!-- Page Header -->
-    <header class="masthead" style="background-image: url('img/sun2.JPG')">
-      <div class="overlay"></div>
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-8 col-md-10 mx-auto">
-            <div class="site-heading">
-              <h1>La vie avec des livres</h1>
-            </div>
-          </div>
-        </div>
-      </div>
-    </header>
-
-
-
-
-    <!-- Main Content -->
-    <div class="container">
-   
 <?php
         // Connexion à la base de données
         try
@@ -84,47 +64,51 @@
         }
 
         // On récupère les 5 derniers billets
-        $req = $bdd->query('SELECT id, titre, contenu, DATE_FORMAT(date_creation, \'%d/%m/%Y à %Hh%imin%ss\') AS date_creation_fr FROM livres ORDER BY date_creation DESC LIMIT 0, 5');
+        $req = $bdd->query('SELECT id, titre, chapitres_id, chapitre_livre, chapitre_details,DATE_FORMAT(creation_chap_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_chap_date_fr FROM chapitres ORDER BY creation_chap_date DESC LIMIT 0, 5');
 
         while ($donnees = $req->fetch())
         {
     ?>
-    
 
-      <div class="row">
+
+    <!-- Page Header -->
+    <header class="masthead" style="background-image: url('img/IntoThe Wild.jpg')">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row">
           <div class="col-lg-8 col-md-10 mx-auto">
-                <div class="post-preview">
-               
-                <a href="post.html">
-                <img src="img/Book.png" class="col-sm-5 float-left" alt>
-                    <h2 class="post-title">
-                    <?php echo htmlspecialchars($donnees['titre']); ?>
-                    
-                    </h2>
-                    <h3 class="post-subtitle">
-                    <blockquote class="blockquote"> <?php
-                        // On affiche le contenu du billet
-                        echo nl2br(htmlspecialchars($donnees['contenu']));
-                        ?></blockquote>
-                    </h3>
-                    </a>
-                    <p class="post-meta">Créé par
-                    <a href="#">Jean Forteroche</a>
-                    <em>le <?php echo $donnees['date_creation_fr']; ?></em></p>
-                </div>
-                <em><a href="alaska_chapitre1.php">Chapitres 1: Je dans le primitif...</a></em> <br />
-                <em><a href="alaska_chapitre2.php">Chapitres 2: La loi de la sauvage...</a></em>
-
-                <hr>
+            <div class="site-heading">
+              <h2><em>le <?php echo $donnees['chapitre_livre']; ?></em></p></h2>
+              <!-- I can add here PHP created date -->
             </div>
+          </div>
+        </div>
       </div>
-    </div>
+    </header>
 
-    <hr>
-            <?php
+  
+
+
+
+
+    <!-- Main Content -->
+    <article>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+
+            <em>le <?php echo $donnees['chapitre_details']; ?></em></p>
+        <?php
         } // Fin de la boucle des billets
         $req->closeCursor();
         ?>
+        </div>
+        </div>
+      </div>
+    </article>
+
+    <hr>
+
     <!-- Footer -->
     <footer>
       <div class="container">
