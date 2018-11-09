@@ -84,7 +84,7 @@
         }
 
         // On récupère les 5 derniers billets
-        $req = $bdd->query('SELECT id, titre, contenu, DATE_FORMAT(date_creation, \'%d/%m/%Y à %Hh%imin%ss\') AS date_creation_fr FROM livres ORDER BY date_creation DESC LIMIT 0, 5');
+        $req = $bdd->query('SELECT id, titre, contenu, images, DATE_FORMAT(date_creation, \'%d/%m/%Y à %Hh%imin%ss\') AS date_creation_fr FROM livres ORDER BY date_creation DESC LIMIT 0, 5');
 
         while ($donnees = $req->fetch())
         {
@@ -96,7 +96,7 @@
                 <div class="post-preview">
                
                 <a href="post.html">
-                <img src="img/Book.png" class="col-sm-5 float-left" alt>
+                <img src="<?php echo ($donnees['images']); ?>" class="col-sm-5 float-left" alt="">
                     <h2 class="post-title">
                     <?php echo htmlspecialchars($donnees['titre']); ?>
                     

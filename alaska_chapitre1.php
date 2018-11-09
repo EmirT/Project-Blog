@@ -100,7 +100,7 @@
             <em>le <?php echo $donnees['chapitre_details']; ?></em></p>
         <?php
         } // Fin de la boucle des billets
-        $req->closeCursor();
+        $req->closeCursor(); // Important : on libère le curseur pour la prochaine requête
         ?>
         </div>
         </div>
@@ -108,7 +108,33 @@
     </article>
 
     <hr>
+    
+   
+    <?php  // Récupération du billet
+    $req = $bdd->query('SELECT Pseudo, commentaire, DATE_FORMAT(date_commentaire, \'%d/%m/%Y à %Hh%imin%ss\') AS date_commentaire_fr FROM commentaires WHERE id_livres = ? ORDER BY date_commentaire');
+    $donnees = $req->fetch();
+  
+    while ($donnees = $req->fetch())
+    {
+    ?>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-10 mx-auto">
+            <h2>Commentaires</h2>
+            <p><strong><?php echo htmlspecialchars($donnees['Pseudo']); ?></strong> le <?php echo $donnees['date_commentaire_fr']; ?></p>
+            <p><?php echo nl2br(htmlspecialchars($donnees['commentaire'])); ?></p>
 
+            </div>
+
+        </div>
+
+    </div>
+
+    <?php
+    } // Fin de la boucle des commentaires
+    $req->closeCursor();
+    ?>
+    <hr>
     <!-- Footer -->
     <footer>
       <div class="container">
