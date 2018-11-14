@@ -1,46 +1,81 @@
 <?php $title = htmlspecialchars($post['title']); ?>
 
 <?php ob_start(); ?>
-<h1>Mon super blog !</h1>
-<p><a href="index.php">Retour à la liste des billets</a></p>
 
-<div class="news">
-    <h3>
-        <?= htmlspecialchars($post['title']) ?>
-        <em>le <?= $post['creation_date_fr'] ?></em>
-    </h3>
-    
-    <p>
-        <?= nl2br(htmlspecialchars($post['content'])) ?>
-    </p>
-</div>
+<p><a href="index.php"  class="btn btn-outline-info ml-3">Retour à la page d'accueil</a></p>
 
-<h2>Commentaires</h2>
 
-<form action="index.php?action=addComment&amp;id=<?= $post['id'] ?>" method="post">
-    <div>
+<form  class="float-left ml-3" action="index.php?action=addComment&amp;id=<?= $post['id'] ?>" method="post">
+    <div class="form-group">
         <label for="author">Auteur</label><br />
-        <input type="text" id="author" name="author" />
+        <input type="text" id="author" name="author" class="form-control" />
     </div>
-    <div>
+    <div  class="form-group">
         <label for="comment">Commentaire</label><br />
-        <textarea id="comment" name="comment"></textarea>
+        <textarea class="form-control"  id="comment exampleFormControlTextarea1" name="comment" rows="3"></textarea>
     </div>
     <div>
-        <input type="submit" />
+        <input type="submit" class="btn btn-outline-secondary" value="Ajouter un commentaire"/>
     </div>
 </form>
 
+ 
+<div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+        <div class="post-preview">
+            <a href="post.html">
+                <h2 class="post-title">
+                <?= htmlspecialchars($post['title']) ?>
+                </h2>
+            </a>
+            <p class="post-meta">
+                <?= nl2br(htmlspecialchars($post['content'])) ?>
+            <br />
+            <em>le <?= $post['creation_date_fr'] ?></em></p>
+        </div>
+            <hr>
+            <hr>
+           
 
-<?php
-while ($comment = $comments->fetch())
-{
+<h2 class="col-lg-8 col-md-10 mx-auto">Commentaires</h2>
+
+
+<div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+            <?php
+                while ($comment = $comments->fetch())
+                {
+            ?>
+         
+        <div class="post-preview">
+            <a href="post.html">
+                <h2 class="post-title">
+                <?= htmlspecialchars($comment['author']) ?>
+                </h2>
+            </a>
+            <p class="post-meta">
+                <?= nl2br(htmlspecialchars($comment['comment'])) ?>
+            <br />
+            <em>le <?= $comment['comment_date_fr'] ?></em></p>
+        </div>
+            <hr>
+            <?php
+                }
+
+
+
+
 ?>
-    <p><strong><?= htmlspecialchars($comment['author']) ?></strong> le <?= $comment['comment_date_fr'] ?></p>
-    <p><?= nl2br(htmlspecialchars($comment['comment'])) ?></p>
-<?php
-}
-?>
+
+
+
+
+
+
+
+
 <?php $content = ob_get_clean(); ?>
 
 
