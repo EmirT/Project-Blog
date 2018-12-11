@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<routes>
+  <route url="/admin/" module="Chapters" action="index" />
+  <route url="/admin/chapters-insert\.html" module="Chapters" action="insert" />
+  <route url="/admin/chapters-update-([0-9]+)\.html" module="Chapters" action="update" vars="id" />
+  <route url="/admin/chapters-delete-([0-9]+)\.html" module="Chapters" action="delete" vars="id" />
+  <route url="/admin/comment-update-([0-9]+)\.html" module="Chapters" action="updateComment" vars="id" />
+  <route url="/admin/comment-delete-([0-9]+)\.html" module="Chapters" action="deleteComment" vars="id" />
+  <route url="/admin/logOut\.html" module="Connexion" action="logOut" />
+
+</routes>
