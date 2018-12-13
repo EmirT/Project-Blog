@@ -1,8 +1,8 @@
-<p>Par <em><?= $chapters['auteur'] ?></em>, le <?= $chapters['dateAjout']->format('d/m/Y à H\hi') ?></p>
-<h2><?= $chapters['titre'] ?></h2>
-<p><?= nl2br($chapters['contenu']) ?></p>
+<p>Par <em><?= $chapters['writer'] ?></em>, le <?= $chapters['dateAd']->format('d/m/Y à H\hi') ?></p>
+<h2><?= $chapters['title'] ?></h2>
+<p><?= nl2br($chapters['content']) ?></p>
 
-<?php if ($chapters['dateAjout'] != $chapters['dateModif']) { ?>
+<?php if ($chapters['dateAd'] != $chapters['dateModif']) { ?>
   <p style="text-align: right;"><small><em>Modifiée le <?= $chapters['dateModif']->format('d/m/Y à H\hi') ?></em></small></p>
   <hr>
 <hr>
@@ -24,9 +24,9 @@ foreach ($comments as $comment)
 ?>
  
   
-  <h5 class="post-subtitle"><p><?= nl2br(htmlspecialchars($comment['contenu'])) ?></p></h5>
+  <h5 class="post-subtitle"><p><?= nl2br(htmlspecialchars($comment['content'])) ?></p></h5>
 
-    <p class="post-meta">Posté par <strong><?= htmlspecialchars($comment['auteur']) ?></strong> le <?= $comment['date']->format('d/m/Y à H\hi') ?></p>
+    <p class="post-meta">Posté par <strong><?= htmlspecialchars($comment['writer']) ?></strong> le <?= $comment['creationDate']->format('d/m/Y à H\hi') ?></p>
     
     <?php if ($user->isAuthenticated()) { ?>
       <a href="admin/comment-update-<?= $comment['id'] ?>.html">Modifier</a> |

@@ -74,16 +74,14 @@
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
           <div class="post-preview">
-            
-              <h2 class="post-title">
-              <?php if ($user->hasFlash()) echo '<p style="text-align: center;">', $user->getFlash(), '</p>'; ?>
-              </h2>
+
               <h3 class="post-subtitle">
              
               <?= $content ?>
-              
+             
               </h3>
-            
+              
+
             
           </div>
           <hr>

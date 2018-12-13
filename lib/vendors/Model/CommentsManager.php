@@ -25,7 +25,7 @@ abstract class CommentsManager extends Manager
    * @param $chapters The ID of the chapters whose comments must be deleted
    * @return void
    */
-  abstract public function deleteFromNews($news);
+  abstract public function deleteFromChapters($chapters);
  
   /**
    * Method to record a comment.
@@ -49,7 +49,7 @@ abstract class CommentsManager extends Manager
    * @param $chapters The chapters on which we want to retrieve the comments
    * @return array
    */
-  abstract public function getListOf($news);
+  abstract public function getListOf($chapters);
  
   /**
    * Method for modifying a comment.

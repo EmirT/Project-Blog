@@ -1,3 +1,7 @@
+<br>
+<hr>
+
+<section>
 <h2>Connexion</h2>
  
 <form action="" method="post">
@@ -9,3 +13,5 @@
  
   <button type="submit" class="btn btn-primary rounded" value="Connexion">Connexion</button>
 </form>
+
+</section>

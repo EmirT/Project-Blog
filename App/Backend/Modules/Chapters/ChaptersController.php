@@ -11,6 +11,7 @@ use \OCFram\FormHandler;
  
 class ChaptersController extends BackController
 {
+  
   public function executeDelete(HTTPRequest $request)
   {
     $chaptersId = $request->getData('id');
@@ -18,7 +19,7 @@ class ChaptersController extends BackController
     $this->managers->getManagerOf('Chapters')->delete($chaptersId);
     $this->managers->getManagerOf('Comments')->deleteFromChapters($chaptersId);
  
-    $this->app->user()->setFlash('La chapitres a bien été supprimée !');
+    $this->app->user()->setFlash('<div class="alert alert-success" role="alert">Le chapitre a bien été supprimé !</div>');
  
     $this->app->httpResponse()->redirect('.');
   }
@@ -27,7 +28,7 @@ class ChaptersController extends BackController
   {
     $this->managers->getManagerOf('Comments')->delete($request->getData('id'));
  
-    $this->app->user()->setFlash('Le commentaire a bien été supprimé !');
+    $this->app->user()->setFlash('<div class="alert alert-success" role="alert">Le chapitre a bien été supprimé !</div>');
  
     $this->app->httpResponse()->redirect('.');
   }
@@ -41,7 +42,18 @@ class ChaptersController extends BackController
     $this->page->addVar('listeChapters', $manager->getList());
     $this->page->addVar('numberChapters', $manager->count());
   }
- 
+
+  public function executeComments(HTTPRequest $request)
+  {
+    $this->page->addVar('title', 'Commentaires postés');
+
+    $managerChapter = $this->managers->getManagerOf('Chapters');
+    $managerComment = $this->managers->getManagerOf('Comments');
+
+    $this->page->addVar('comments', $managerComment->getListComments());
+    $this->page->addVar('listChapters', $managerChapter->getList());
+  }
+
   public function executeInsert(HTTPRequest $request)
   {
     $this->processForm($request);
@@ -64,8 +76,8 @@ class ChaptersController extends BackController
     {
       $comment = new Comment([
         'id' => $request->getData('id'),
-        'auteur' => $request->postData('auteur'),
-        'contenu' => $request->postData('contenu')
+        'writer' => $request->postData('writer'),
+        'content' => $request->postData('content')
       ]);
     }
     else
@@ -95,9 +107,9 @@ class ChaptersController extends BackController
     if ($request->method() == 'POST')
     {
       $chapters = new Chapters([
-        'auteur' => $request->postData('auteur'),
-        'titre' => $request->postData('titre'),
-        'contenu' => $request->postData('contenu')
+        'writer' => $request->postData('writer'),
+        'title' => $request->postData('title'),
+        'content' => $request->postData('content')
       ]);
  
       if ($request->getExists('id'))
@@ -134,4 +146,9 @@ class ChaptersController extends BackController
  
     $this->page->addVar('form', $form->createView());
   }
+
+
+
+
+
 }

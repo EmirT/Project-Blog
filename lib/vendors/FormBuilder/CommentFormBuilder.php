@@ -12,8 +12,8 @@ class CommentFormBuilder extends FormBuilder
   public function build()
   {
     $this->form->add(new StringField([
-        'label' => 'Auteur',
-        'name' => 'auteur',
+        'label' => 'Writer',
+        'name' => 'writer',
         'maxLength' => 50,
         'validators' => [
           new MaxLengthValidator('L\'auteur spécifié est trop long (50 caractères maximum)', 50),
@@ -21,8 +21,8 @@ class CommentFormBuilder extends FormBuilder
         ],
        ]))
        ->add(new TextField([
-        'label' => 'Contenu',
-        'name' => 'contenu',
+        'label' => 'Content',
+        'name' => 'content',
         'rows' => 7,
         'cols' => 50,
         'validators' => [

@@ -24,12 +24,12 @@ class ChaptersController extends BackController
  
     foreach ($listeChapters as $chapters)
     {
-      if (strlen($chapters->contenu()) > $numberCaracteres)
+      if (strlen($chapters->content()) > $numberCaracteres)
       {
-        $early = substr($chapters->contenu(), 0, $numberCaracteres);
+        $early = substr($chapters->content(), 0, $numberCaracteres);
         $early = substr($early, 0, strrpos($early, ' ')) . '...';
  
-        $chapters->setContenu($early);
+        $chapters->setContent($early);
       }
     }
  
@@ -46,7 +46,7 @@ class ChaptersController extends BackController
       $this->app->httpResponse()->redirect404();
     }
  
-    $this->page->addVar('title', $chapters->titre());
+    $this->page->addVar('title', $chapters->title());
     $this->page->addVar('chapters', $chapters);
     $this->page->addVar('comments', $this->managers->getManagerOf('Comments')->getListOf($chapters->id()));
   }
@@ -58,8 +58,8 @@ class ChaptersController extends BackController
     {
       $comment = new Comment([
         'chapters' => $request->getData('chapters'),
-        'auteur' => $request->postData('auteur'),
-        'contenu' => $request->postData('contenu')
+        'writer' => $request->postData('writer'),
+        'content' => $request->postData('content')
       ]);
     }
     else

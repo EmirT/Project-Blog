@@ -6,6 +6,7 @@
   <route url="/admin/chapters-delete-([0-9]+)\.html" module="Chapters" action="delete" vars="id" />
   <route url="/admin/comment-update-([0-9]+)\.html" module="Chapters" action="updateComment" vars="id" />
   <route url="/admin/comment-delete-([0-9]+)\.html" module="Chapters" action="deleteComment" vars="id" />
+  <route url="/admin/comments\.html" module="Chapters" action="comments" />
   <route url="/admin/logOut\.html" module="Connexion" action="logOut" />
 
 </routes>

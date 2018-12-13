@@ -7,11 +7,11 @@ class ChaptersManagerPDO extends ChaptersManager
 {
   protected function add(Chapters $chapters)
   {
-    $requete = $this->dao->prepare('INSERT INTO chapters SET auteur = :auteur, titre = :titre, contenu = :contenu, dateAjout = NOW(), dateModif = NOW()');
+    $requete = $this->dao->prepare('INSERT INTO chapters SET writer = :writer, title = :title, content = :content, dateAd = NOW(), dateModif = NOW()');
  
-    $requete->bindValue(':titre', $chapters->titre());
-    $requete->bindValue(':auteur', $chapters->auteur());
-    $requete->bindValue(':contenu', $chapters->contenu());
+    $requete->bindValue(':title', $chapters->title());
+    $requete->bindValue(':writer', $chapters->writer());
+    $requete->bindValue(':content', $chapters->content());
  
     $requete->execute();
   }
@@ -28,7 +28,7 @@ class ChaptersManagerPDO extends ChaptersManager
  
   public function getList($debut = -1, $limite = -1)
   {
-    $sql = 'SELECT id, auteur, titre, contenu, dateAjout, dateModif FROM chapters ORDER BY id DESC';
+    $sql = 'SELECT id, writer, title, content, dateAd, dateModif FROM chapters ORDER BY id DESC';
  
     if ($debut != -1 || $limite != -1)
     {
@@ -42,7 +42,7 @@ class ChaptersManagerPDO extends ChaptersManager
  
     foreach ($listeChapters as $chapters)
     {
-      $chapters->setDateAjout(new \DateTime($chapters->dateAjout()));
+      $chapters->setDateAd(new \DateTime($chapters->dateAd()));
       $chapters->setDateModif(new \DateTime($chapters->dateModif()));
     }
  
@@ -53,7 +53,7 @@ class ChaptersManagerPDO extends ChaptersManager
  
   public function getUnique($id)
   {
-    $requete = $this->dao->prepare('SELECT id, auteur, titre, contenu, dateAjout, dateModif FROM chapters WHERE id = :id');
+    $requete = $this->dao->prepare('SELECT id, writer, title, content, dateAd, dateModif FROM chapters WHERE id = :id');
     $requete->bindValue(':id', (int) $id, \PDO::PARAM_INT);
     $requete->execute();
  
@@ -61,7 +61,7 @@ class ChaptersManagerPDO extends ChaptersManager
  
     if ($chapters = $requete->fetch())
     {
-      $chapters->setDateAjout(new \DateTime($chapters->dateAjout()));
+      $chapters->setDateAd(new \DateTime($chapters->dateAd()));
       $chapters->setDateModif(new \DateTime($chapters->dateModif()));
  
       return $chapters;
@@ -72,11 +72,11 @@ class ChaptersManagerPDO extends ChaptersManager
  
   protected function modify(Chapters $chapters)
   {
-    $requete = $this->dao->prepare('UPDATE chapters SET auteur = :auteur, titre = :titre, contenu = :contenu, dateModif = NOW() WHERE id = :id');
+    $requete = $this->dao->prepare('UPDATE chapters SET writer = :writer, title = :title, content = :content, dateModif = NOW() WHERE id = :id');
  
-    $requete->bindValue(':titre', $chapters->titre());
-    $requete->bindValue(':auteur', $chapters->auteur());
-    $requete->bindValue(':contenu', $chapters->contenu());
+    $requete->bindValue(':title', $chapters->title());
+    $requete->bindValue(':writer', $chapters->writer());
+    $requete->bindValue(':content', $chapters->content());
     $requete->bindValue(':id', $chapters->id(), \PDO::PARAM_INT);
  
     $requete->execute();

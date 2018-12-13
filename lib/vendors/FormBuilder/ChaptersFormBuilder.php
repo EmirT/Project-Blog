@@ -12,8 +12,8 @@ class ChaptersFormBuilder extends FormBuilder
   public function build()
   {
     $this->form->add(new StringField([
-        'label' => 'Auteur',
-        'name' => 'auteur',
+        'label' => 'Writer',
+        'name' => 'writer',
         'maxLength' => 20,
         'validators' => [
           new MaxLengthValidator('L\'auteur spécifié est trop long (20 caractères maximum)', 20),
@@ -21,8 +21,8 @@ class ChaptersFormBuilder extends FormBuilder
         ],
        ]))
        ->add(new StringField([
-        'label' => 'Titre',
-        'name' => 'titre',
+        'label' => 'Title',
+        'name' => 'title',
         'maxLength' => 100,
         'validators' => [
           new MaxLengthValidator('Le titre spécifié est trop long (100 caractères maximum)', 100),
@@ -30,8 +30,8 @@ class ChaptersFormBuilder extends FormBuilder
         ],
        ]))
        ->add(new TextField([
-        'label' => 'Contenu',
-        'name' => 'contenu',
+        'label' => 'Content',
+        'name' => 'content',
         'rows' => 8,
         'cols' => 60,
         'validators' => [

@@ -7,11 +7,11 @@ class CommentsManagerPDO extends CommentsManager
 {
   protected function add(Comment $comment)
   {
-    $q = $this->dao->prepare('INSERT INTO comments SET news = :news, auteur = :auteur, contenu = :contenu, date = NOW()');
+    $q = $this->dao->prepare('INSERT INTO comments SET chapters = :chapters, writer = :writer, content = :content, creationDate = NOW()');
  
-    $q->bindValue(':news', $comment->news(), \PDO::PARAM_INT);
-    $q->bindValue(':auteur', $comment->auteur());
-    $q->bindValue(':contenu', $comment->contenu());
+    $q->bindValue(':chapters', $comment->chapters(), \PDO::PARAM_INT);
+    $q->bindValue(':writer', $comment->writer());
+    $q->bindValue(':content', $comment->content());
  
     $q->execute();
  
@@ -23,20 +23,20 @@ class CommentsManagerPDO extends CommentsManager
     $this->dao->exec('DELETE FROM comments WHERE id = '.(int) $id);
   }
  
-  public function deleteFromNews($news)
+  public function deleteFromChapters($chapters)
   {
-    $this->dao->exec('DELETE FROM comments WHERE news = '.(int) $news);
+    $this->dao->exec('DELETE FROM comments WHERE chapters = '.(int) $chapters);
   }
  
-  public function getListOf($news)
+  public function getListOf($chapters)
   {
-    if (!ctype_digit($news))
+    if (!ctype_digit($chapters))
     {
-      throw new \InvalidArgumentException('L\'identifiant de la news passé doit être un nombre entier valide');
+      throw new \InvalidArgumentException('L\'identifiant de la chapters passé doit être un nombre entier valide');
     }
  
-    $q = $this->dao->prepare('SELECT id, news, auteur, contenu, date FROM comments WHERE news = :news');
-    $q->bindValue(':news', $news, \PDO::PARAM_INT);
+    $q = $this->dao->prepare('SELECT id, chapters, writer, content, creationDate FROM comments WHERE chapters = :chapters');
+    $q->bindValue(':chapters', $chapters, \PDO::PARAM_INT);
     $q->execute();
  
     $q->setFetchMode(\PDO::FETCH_CLASS | \PDO::FETCH_PROPS_LATE, '\Entity\Comment');
@@ -45,7 +45,7 @@ class CommentsManagerPDO extends CommentsManager
  
     foreach ($comments as $comment)
     {
-      $comment->setDate(new \DateTime($comment->date()));
+      $comment->setDate(new \DateTime($comment->creationDate()));
     }
  
     return $comments;
@@ -53,10 +53,10 @@ class CommentsManagerPDO extends CommentsManager
  
   protected function modify(Comment $comment)
   {
-    $q = $this->dao->prepare('UPDATE comments SET auteur = :auteur, contenu = :contenu WHERE id = :id');
+    $q = $this->dao->prepare('UPDATE comments SET writer = :writer, content = :content WHERE id = :id');
  
-    $q->bindValue(':auteur', $comment->auteur());
-    $q->bindValue(':contenu', $comment->contenu());
+    $q->bindValue(':writer', $comment->writer());
+    $q->bindValue(':content', $comment->content());
     $q->bindValue(':id', $comment->id(), \PDO::PARAM_INT);
  
     $q->execute();
@@ -64,7 +64,7 @@ class CommentsManagerPDO extends CommentsManager
  
   public function get($id)
   {
-    $q = $this->dao->prepare('SELECT id, news, auteur, contenu FROM comments WHERE id = :id');
+    $q = $this->dao->prepare('SELECT id, chapters, writer, content FROM comments WHERE id = :id');
     $q->bindValue(':id', (int) $id, \PDO::PARAM_INT);
     $q->execute();
  
@@ -72,4 +72,22 @@ class CommentsManagerPDO extends CommentsManager
  
     return $q->fetch();
   }
+  
+  public function getListComments()
+  {
+    $q = $this->dao->query('SELECT id, chapters, writer, content, creationDate FROM comments ORDER BY id DESC');
+    $q->setFetchMode(\PDO::FETCH_CLASS | \PDO::FETCH_PROPS_LATE, '\Entity\Comment');
+
+    $comments = $q->fetchAll();
+
+    foreach ($comments as $comment)
+    {
+      $comment->setDate(new \DateTime($comment->creationDate()));
+    }
+
+    return $comments;
+  }
+
+
+
 }

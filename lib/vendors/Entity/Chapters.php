@@ -5,57 +5,57 @@ use \OCFram\Entity;
  
 class Chapters extends Entity
 {
-  protected $auteur,
-            $titre,
-            $contenu,
-            $dateAjout,
+  protected $writer,
+            $title,
+            $content,
+            $dateAd,
             $dateModif;
  
-  const AUTEUR_INVALIDE = 1;
-  const TITRE_INVALIDE = 2;
-  const CONTENU_INVALIDE = 3;
+  const WRITER_INVALIDE = 1;
+  const TITLE_INVALIDE = 2;
+  const CONTENT_INVALIDE = 3;
  
   public function isValid()
   {
-    return !(empty($this->auteur) || empty($this->titre) || empty($this->contenu));
+    return !(empty($this->writer) || empty($this->title) || empty($this->content));
   }
  
  
   // SETTERS //
  
-  public function setAuteur($auteur)
+  public function setWriter($writer)
   {
-    if (!is_string($auteur) || empty($auteur))
+    if (!is_string($writer) || empty($writer))
     {
-      $this->erreurs[] = self::AUTEUR_INVALIDE;
+      $this->erreurs[] = self::WRITER_INVALIDE;
     }
  
-    $this->auteur = $auteur;
+    $this->writer = $writer;
   }
  
-  public function setTitre($titre)
+  public function setTitle($title)
   {
-    if (!is_string($titre) || empty($titre))
+    if (!is_string($title) || empty($title))
     {
-      $this->erreurs[] = self::TITRE_INVALIDE;
+      $this->erreurs[] = self::TITLE_INVALIDE;
     }
  
-    $this->titre = $titre;
+    $this->title = $title;
   }
  
-  public function setContenu($contenu)
+  public function setContent($content)
   {
-    if (!is_string($contenu) || empty($contenu))
+    if (!is_string($content) || empty($content))
     {
-      $this->erreurs[] = self::CONTENU_INVALIDE;
+      $this->erreurs[] = self::CONTENT_INVALIDE;
     }
  
-    $this->contenu = $contenu;
+    $this->content = $content;
   }
  
-  public function setDateAjout(\DateTime $dateAjout)
+  public function setDateAd(\DateTime $dateAd)
   {
-    $this->dateAjout = $dateAjout;
+    $this->dateAd = $dateAd;
   }
  
   public function setDateModif(\DateTime $dateModif)
@@ -65,24 +65,24 @@ class Chapters extends Entity
  
   // GETTERS //
  
-  public function auteur()
+  public function writer()
   {
-    return $this->auteur;
+    return $this->writer;
   }
  
-  public function titre()
+  public function title()
   {
-    return $this->titre;
+    return $this->title;
   }
  
-  public function contenu()
+  public function content()
   {
-    return $this->contenu;
+    return $this->content;
   }
  
-  public function dateAjout()
+  public function dateAd()
   {
-    return $this->dateAjout;
+    return $this->dateAd;
   }
  
   public function dateModif()
