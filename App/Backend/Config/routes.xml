@@ -7,6 +7,11 @@
   <route url="/admin/comment-update-([0-9]+)\.html" module="Chapters" action="updateComment" vars="id" />
   <route url="/admin/comment-delete-([0-9]+)\.html" module="Chapters" action="deleteComment" vars="id" />
   <route url="/admin/comments\.html" module="Chapters" action="comments" />
+  <route url="/admin/signal\.html" module="Chapters" action="reported" />
+  <route url="/admin/comment-signal-([0-9]+)\.html" module="Chapters" action="reportedComment" vars="id" />
+  <route url="/admin/comment-valid-([0-9]+)\.html" module="Chapters" action="validComment" vars="id" />
+
   <route url="/admin/logOut\.html" module="Connexion" action="logOut" />
+
 
 </routes>

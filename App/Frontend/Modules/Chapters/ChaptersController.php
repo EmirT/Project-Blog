@@ -3,6 +3,7 @@ namespace App\Frontend\Modules\Chapters;
  
 use \OCFram\BackController;
 use \OCFram\HTTPRequest;
+use \Entity\Chapters;
 use \Entity\Comment;
 use \FormBuilder\CommentFormBuilder;
 use \OCFram\FormHandler;
@@ -85,4 +86,20 @@ class ChaptersController extends BackController
     $this->page->addVar('form', $form->createView());
     $this->page->addVar('title', 'Ajout d\'un commentaire');
   }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

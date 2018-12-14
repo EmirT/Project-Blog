@@ -6,7 +6,14 @@
             <div class="table-title">
                 <div class="row">
                     <div class="col-sm-8"><p>Il y a actuellement <?= $numberChapters ?> chapitres. En voici la liste :</p></div>
-                            <div class="row bubble-header">
+                        <div class="row bubble-header">
+                            <i class="fa fa-comments fa-2x"></i>
+                            <div class="bubble-footer">
+                            <span><a href="signal.html">Voir les signal commentaires</a></span>
+                            <span><i class="fa fa-arrow-circle-right"></i></span>
+                        </div>       
+
+                        <div class="row bubble-header">
                             <i class="fa fa-comments fa-2x"></i>
                             <div class="bubble-footer">
                             <span><a href="comments.html">Voir les commentaires</a></span>

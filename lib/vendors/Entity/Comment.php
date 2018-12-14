@@ -8,10 +8,12 @@ class Comment extends Entity
   protected $chapters,
             $writer,
             $content,
+            $reported,
             $creationDate;
  
   const WRITER_INVALIDE = 1;
   const CONTENT_INVALIDE = 2;
+  const REPORTED_INVALIDE = 3;
  
   public function isValid()
   {
@@ -48,6 +50,17 @@ class Comment extends Entity
   {
     $this->creationDate = $creationDate;
   }
+
+  public function setReported($reported)
+  {
+    if (($reported != 'no') || ($reported != 'yes'))
+    {
+      $this->errors[] = self::REPORTED_INVALIDE;
+    }
+
+    $this->reported = $reported;
+  }
+
  
   // GETTERS //
   
@@ -70,4 +83,10 @@ class Comment extends Entity
   {
     return $this->creationDate;
   }
+
+  public function reported()
+  {
+    return $this->reported;
+  }
+
 }
