@@ -28,9 +28,9 @@
 
 
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
       <div class="container">
-        <div class="collapse navbar-collapse" id="navbarResponsive">
+        <div class="collapse navbar-collapse">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
               <a class="nav-link" href="/">Voir le blog</a>
@@ -68,7 +68,10 @@
 
     <script src='https://cloud.tinymce.com/stable/tinymce.min.js'></script>
     <script>tinymce.init({selector: '#mytextarea',
-                          language_url : '/js/langs/fr_FR.js'
+                          language_url : '/js/langs/fr_FR.js',
+                          forced_root_block : '',
+                          force_p_newline : false,
+                          force_br_newline: true
                         });
     </script>
 

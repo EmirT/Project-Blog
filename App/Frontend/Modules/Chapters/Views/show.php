@@ -29,10 +29,10 @@ foreach ($comments as $comment)
     <p class="post-meta">Posté par <strong><?= htmlspecialchars($comment['writer']) ?></strong> le <?= $comment['creationDate']->format('d/m/Y à H\hi') ?></p>
     
    
-                      
+    <a href="comment-signal-<?= $comment['id'] ?>.html">Signaler?</a> |                
 
     <?php if ($user->isAuthenticated()) { ?>
-      <a href="admin/comment-signal-<?= $comment['id'] ?>.html">Signaler</a>|
+      
       <a href="admin/comment-update-<?= $comment['id'] ?>.html">Modifier</a> |
       <a href="admin/comment-delete-<?= $comment['id'] ?>.html">Supprimer</a>
     <?php } ?>

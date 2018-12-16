@@ -1,10 +1,16 @@
 <br>
 <section>
     <div class="container index">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href=".">Admin</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Signal</li>
+        </ol>
+    </nav>
       <div class="table-wrapper">
             <div class="row">
                 <div class="col-sm-12">
-                    <h3>Tous les commentaires postés</h3>
+                    <h3>Tous les commentaires signalé</h3>
                 </div>
             </div>
             <table class="table table-striped table-hover table-bordered">
@@ -25,7 +31,7 @@
                       <td><p><?= nl2br(htmlspecialchars($comment['content'])) ?></p></td>
                       <td><span class="text-muted"><?= $comment['creationDate']->format('d/m/Y à H\hi') ?></span></td>
                       <td>
-                      <a href="comment-valid-<?= $comment['id'] ?>.html"><img src="/Web/img/valid.png" class="icon" title="Valider le commentaire" /></a>
+                      <a href="comment-valid-<?= $comment['id'] ?>.html" class="valid" title="Valide" data-toggle="tooltip"><i class="material-icons">&#xe834;</i></a>
                       <a href="comment-update-<?= $comment['id'] ?>.html" class="edit" title="Modifier" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
                       <a href="comment-delete-<?= $comment['id'] ?>.html" class="delete" title="Supprimer" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
                       </td>

@@ -87,9 +87,6 @@
           <hr>
           
           <!-- Pager -->
-          <div class="clearfix">
-            <a class="btn btn-primary float-right" href="#">Older Posts &rarr;</a>
-          </div>
         </div>
       </div>
     </div>
@@ -122,12 +119,12 @@
                 <a href="#">
                   <span class="fa-stack fa-lg">
                     <i class="fas fa-circle fa-stack-2x"></i>
-                    <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                    <i class="fab fa-instagram fa-stack-1x fa-inverse"></i>
                   </span>
                 </a>
               </li>
             </ul>
-            <p class="copyright text-muted">Copyright &copy; Your Website 2018</p>
+            <p class="copyright text-muted">Copyright &copy; ET</p>
           </div>
         </div>
       </div>
@@ -142,7 +139,10 @@
 
     <script src='https://cloud.tinymce.com/stable/tinymce.min.js'></script>
     <script>tinymce.init({selector: '#mytextarea',
-                          language_url : '/js/langs/fr_FR.js'
+                          language_url : '/js/langs/fr_FR.js',
+                          forced_root_block : '',
+                          force_p_newline : false,
+                          force_br_newline: true
                         });
     </script>
 

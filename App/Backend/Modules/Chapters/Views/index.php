@@ -5,24 +5,14 @@
         <div class="table-wrapper">
             <div class="table-title">
                 <div class="row">
-                    <div class="col-sm-8"><p>Il y a actuellement <?= $numberChapters ?> chapitres. En voici la liste :</p></div>
-                        <div class="row bubble-header">
-                            <i class="fa fa-comments fa-2x"></i>
-                            <div class="bubble-footer">
-                            <span><a href="signal.html">Voir les signal commentaires</a></span>
-                            <span><i class="fa fa-arrow-circle-right"></i></span>
-                        </div>       
-
-                        <div class="row bubble-header">
-                            <i class="fa fa-comments fa-2x"></i>
-                            <div class="bubble-footer">
-                            <span><a href="comments.html">Voir les commentaires</a></span>
-                            <span><i class="fa fa-arrow-circle-right"></i></span>
-                        </div>
-                    </div>
+                    <div class="col-sm-8"><p>Il y a actuellement <?= $numberChapters ?> chapitres. En voici la liste :</p></div>   
                 </div>
+                    <div class="btn-toolbar float-sm-right">
+                        <p><a href="signal.html" type="button" class="btn btn-outline-danger mr-3">Voir les signal commentaires</a></p>
+                        <p><a href="comments.html" type="button" class="btn btn-outline-primary">Voir les commentaires</a></p>
+
+                    </div>
             </div>
-            
             <table class="table table-striped table-hover table-bordered">
                 <thead>
                     <tr>

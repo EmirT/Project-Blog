@@ -3,4 +3,5 @@
   <route url="/" module="Chapters" action="index" />
   <route url="/chapters-([0-9]+)\.html" module="Chapters" action="show" vars="id"/>
   <route url="/commenter-([0-9]+)\.html" module="Chapters" action="insertComment" vars="chapters" />
+  <route url="/comment-signal-([0-9]+)\.html" module="Chapters" action="reportedComment" vars="id" />
 </routes>

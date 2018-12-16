@@ -73,6 +73,13 @@ table.table td a.edit {
 table.table td a.delete {
     color: rgb(248, 15, 15);
 }
+
+table.table td a.valid {
+    color: rgb(0, 47, 255);
+}
+
+
+
 table.table td i {
     font-size: 19px;
 }    
