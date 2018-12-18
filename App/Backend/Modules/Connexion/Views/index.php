@@ -27,7 +27,7 @@
                 </ol>
                 <div class="carousel-inner" role="listbox">
                   <div class="carousel-item active">
-                    <img class="d-block img-fluid" src="../images/valcono.jpg" alt="First slide">
+                    <img class="d-block img-fluid" src="/Web/images/valcono.jpg" alt="First slide">
                       <div class="carousel-caption d-none d-md-block">
                         <div class="banner-text">
                           <h2>Ceci est le panneau d'administration</h2>
@@ -36,7 +36,7 @@
                       </div>
                     </div>
                   <div class="carousel-item">
-                    <img class="d-block img-fluid" src="../images/balance.jpg" alt="Second slide">
+                    <img class="d-block img-fluid" src="/Web/images/balance.jpg" alt="Second slide">
                       <div class="carousel-caption d-none d-md-block">
                         <div class="banner-text">
                         <h2>Signaler !</h2>
@@ -45,7 +45,7 @@
                     </div>
                   </div>
                   <div class="carousel-item">
-                    <img class="d-block img-fluid" src="../images/sport.jpg" alt="Third slide">
+                    <img class="d-block img-fluid" src="/Web/images/sport.jpg" alt="Third slide">
                       <div class="carousel-caption d-none d-md-block">
                         <div class="banner-text">
                           <h2>Les commentaires</h2>

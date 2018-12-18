@@ -10,14 +10,14 @@
     <title><?= isset($title) ? $title : 'Jean Forteroche' ?></title>
 
     <!-- Bootstrap core CSS -->
-    <link href="/3rdParty/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/Web/3rdParty/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom fonts for this template -->
-    <link href="/3rdParty/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="/Web/3rdParty/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" >
     <!-- Custom styles for this template -->
-    <link href="/css/admin.css" rel="stylesheet">
+    <link href="/Web/css/admin.css" rel="stylesheet">
   </head>
 
   <body>
@@ -52,13 +52,13 @@
      <hr>
 
     <!-- Bootstrap core JavaScript -->
-    <script src="/3rdParty/jquery/jquery.min.js"></script>
-    <script src="/3rdParty/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/Web/3rdParty/jquery/jquery.min.js"></script>
+    <script src="/Web/3rdParty/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <!-- TinyMCE -->
     <script src='https://cloud.tinymce.com/stable/tinymce.min.js'></script>
     <script>tinymce.init({selector: '#mytextarea',
-                          language_url : '/js/langs/fr_FR.js',
+                          language_url : '/Web/js/langs/fr_FR.js',
                           forced_root_block : '',
                           force_p_newline : false,
                           force_br_newline: true
