@@ -22,8 +22,6 @@ foreach ($comments as $comment)
 {
  
 ?>
- 
-  
   <h5 class="post-subtitle"><p><?= nl2br(htmlspecialchars($comment['content'])) ?></p></h5>
 
     <p class="post-meta">Posté par <strong><?= htmlspecialchars($comment['writer']) ?></strong> le <?= $comment['creationDate']->format('d/m/Y à H\hi') ?></p>
@@ -37,8 +35,6 @@ foreach ($comments as $comment)
       <a href="admin/comment-delete-<?= $comment['id'] ?>.html">Supprimer</a>
     <?php } ?>
     <hr>
- 
-
 <?php
 }
 ?>

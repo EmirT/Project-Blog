@@ -1,12 +1,12 @@
 <?php
 namespace App\Frontend\Modules\Chapters;
  
-use \OCFram\BackController;
-use \OCFram\HTTPRequest;
+use \ETFram\BackController;
+use \ETFram\HTTPRequest;
 use \Entity\Chapters;
 use \Entity\Comment;
 use \FormBuilder\CommentFormBuilder;
-use \OCFram\FormHandler;
+use \ETFram\FormHandler;
  
 class ChaptersController extends BackController
 {
@@ -73,7 +73,7 @@ class ChaptersController extends BackController
  
     $form = $formBuilder->form();
  
-    $formHandler = new \OCFram\FormHandler($form, $this->managers->getManagerOf('Comments'), $request);
+    $formHandler = new \ETFram\FormHandler($form, $this->managers->getManagerOf('Comments'), $request);
     
     if ($formHandler->process())
     {

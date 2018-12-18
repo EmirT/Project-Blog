@@ -1,17 +1,16 @@
 <?php
 namespace App\Backend\Modules\Chapters;
  
-use \OCFram\BackController;
-use \OCFram\HTTPRequest;
+use \ETFram\BackController;
+use \ETFram\HTTPRequest;
 use \Entity\Chapters;
 use \Entity\Comment;
 use \FormBuilder\CommentFormBuilder;
 use \FormBuilder\ChaptersFormBuilder;
-use \OCFram\FormHandler;
+use \ETFram\FormHandler;
  
 class ChaptersController extends BackController
 {
-  
   public function executeDelete(HTTPRequest $request)
   {
     $chaptersId = $request->getData('id');
@@ -102,7 +101,7 @@ class ChaptersController extends BackController
  
     $form = $formBuilder->form();
  
-    $formHandler = new \OCFram\FormHandler($form, $this->managers->getManagerOf('Comments'), $request);
+    $formHandler = new \ETFram\FormHandler($form, $this->managers->getManagerOf('Comments'), $request);
     
     if ($formHandler->process())
     {
@@ -147,7 +146,7 @@ class ChaptersController extends BackController
  
     $form = $formBuilder->form();
  
-    $formHandler = new \OCFram\FormHandler($form, $this->managers->getManagerOf('Chapters'), $request);
+    $formHandler = new \ETFram\FormHandler($form, $this->managers->getManagerOf('Chapters'), $request);
  
     if ($formHandler->process())
     {
@@ -159,16 +158,10 @@ class ChaptersController extends BackController
     $this->page->addVar('form', $form->createView());
   }
 
-
-
   public function executeValidComment(HTTPRequest $request)
   {
     $this->managers->getManagerOf('Comments')->valid($request->getData('id'));
     $this->app->user()->setFlash('<div class="alert alert-success" role="alert">Le commentaire a bien été validé !</div>');
     $this->app->httpResponse()->redirect('.');
   }
-
-
-
-
 }

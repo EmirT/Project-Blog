@@ -8,5 +8,5 @@
         <button type="submit" class="btn btn-primary rounded" value="Modifier">Modifier</button>
       </p>
     </form>
-    <br>
+  <br>
 </section>

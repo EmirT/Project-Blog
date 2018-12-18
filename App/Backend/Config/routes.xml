@@ -10,6 +10,4 @@
   <route url="/admin/signal\.html" module="Chapters" action="reported" />
   <route url="/admin/comment-valid-([0-9]+)\.html" module="Chapters" action="validComment" vars="id" />
   <route url="/admin/logOut\.html" module="Connexion" action="logOut" />
-
-
 </routes>

@@ -1,13 +1,13 @@
 <br>
 <section>
     <div class="container index">
-    <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href=".">Admin</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Signal</li>
-        </ol>
-    </nav>
-      <div class="table-wrapper">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href=".">Admin</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Signal</li>
+            </ol>
+        </nav>
+        <div class="table-wrapper">
             <div class="row">
                 <div class="col-sm-12">
                     <h3>Tous les commentaires signalé</h3>
@@ -40,5 +40,5 @@
                 </tbody>
             </table>
         </div>  
-      </div>  
+    </div>  
 </section>

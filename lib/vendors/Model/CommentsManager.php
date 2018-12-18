@@ -1,7 +1,7 @@
 <?php
 namespace Model;
  
-use \OCFram\Manager;
+use \ETFram\Manager;
 use \Entity\Comment;
  
 abstract class CommentsManager extends Manager
@@ -64,4 +64,20 @@ abstract class CommentsManager extends Manager
    * @return Comment
    */
   abstract public function get($id);
+
+
+  /**
+   * Method to obtain a reported comments.
+   * @param $id The comment id
+   * @return Comment
+   */
+  abstract public function reported($id);
+
+
+  /**
+   * Method to validate reported comments.
+   * @param $id The comment id
+   * @return Comment
+   */
+  abstract public function valid($id);
 }

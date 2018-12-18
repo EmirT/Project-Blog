@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
-
   <head>
-
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
@@ -20,11 +18,9 @@
 
     <!-- Custom styles for this template -->
     <link href="/css/clean-blog.min.css" rel="stylesheet">
-
   </head>
 
   <body>
-
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
       <div class="container">
@@ -74,23 +70,14 @@
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
           <div class="post-preview">
-
               <h3 class="post-subtitle">
-             
-              <?= $content ?>
-             
+                <?= $content ?>
               </h3>
-              
-
-            
           </div>
           <hr>
-          
-          <!-- Pager -->
         </div>
       </div>
     </div>
-
     <hr>
 
     <!-- Footer -->
@@ -134,9 +121,6 @@
     <script src="/3rdParty/jquery/jquery.min.js"></script>
     <script src="/3rdParty/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Custom scripts for this template -->
-    <script src="/js/clean-blog.min.js"></script>
-
     <script src='https://cloud.tinymce.com/stable/tinymce.min.js'></script>
     <script>tinymce.init({selector: '#mytextarea',
                           language_url : '/js/langs/fr_FR.js',
@@ -145,7 +129,5 @@
                           force_br_newline: true
                         });
     </script>
-
   </body>
-
 </html>

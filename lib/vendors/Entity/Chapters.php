@@ -1,7 +1,7 @@
 <?php
 namespace Entity;
  
-use \OCFram\Entity;
+use \ETFram\Entity;
  
 class Chapters extends Entity
 {
@@ -11,9 +11,9 @@ class Chapters extends Entity
             $dateAd,
             $dateModif;
  
-  const WRITER_INVALIDE = 1;
-  const TITLE_INVALIDE = 2;
-  const CONTENT_INVALIDE = 3;
+  const WRITER_INVALID = 1;
+  const TITLE_INVALID = 2;
+  const CONTENT_INVALID = 3;
  
   public function isValid()
   {
@@ -27,7 +27,7 @@ class Chapters extends Entity
   {
     if (!is_string($writer) || empty($writer))
     {
-      $this->erreurs[] = self::WRITER_INVALIDE;
+      $this->erreurs[] = self::WRITER_INVALID;
     }
  
     $this->writer = $writer;
@@ -37,7 +37,7 @@ class Chapters extends Entity
   {
     if (!is_string($title) || empty($title))
     {
-      $this->erreurs[] = self::TITLE_INVALIDE;
+      $this->erreurs[] = self::TITLE_INVALID;
     }
  
     $this->title = $title;
@@ -47,7 +47,7 @@ class Chapters extends Entity
   {
     if (!is_string($content) || empty($content))
     {
-      $this->erreurs[] = self::CONTENT_INVALIDE;
+      $this->erreurs[] = self::CONTENT_INVALID;
     }
  
     $this->content = $content;

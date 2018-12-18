@@ -123,10 +123,4 @@ class CommentsManagerPDO extends CommentsManager
 
     return $comments;
   }
-
-
-
- 
-
-
 }

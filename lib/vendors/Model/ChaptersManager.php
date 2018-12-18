@@ -1,7 +1,7 @@
 <?php
 namespace Model;
  
-use \OCFram\Manager;
+use \ETFram\Manager;
 use \Entity\Chapters;
  
 abstract class ChaptersManager extends Manager
