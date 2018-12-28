@@ -1,0 +1,28 @@
+DWJ-projet4
+
+Besoin du client:
+
+Interface CRUD (Create, Read, Update, Delete)
+Interface de rédaction -> TinyMCE
+Commentaires possible sur chaque billet, avec possibilité d'en signaler un pour être modéré
+Administration protégée par un mot de passe
+
+Contraintes techniques:
+
+Base de bonnées MySQL
+Frontend lecture de billet
+Backend administration des billets pour l'écture
+CRUD (create, raed, update, delete)
+Ajout de commentaires possible + médération dans administration
+Possible de signaler les billets
+Interface d'administration basé sur une interface WYSIWYG basé sur TinyMCE.
+
+Développerez en PHP sans utiliser de framework pour familiariser avec les concepts de base de la programmation. 
+
+Le code sera construit sur une architecture MVC. 
+Développerez autant que possible en orienté objet (au minimum, le modèle doit être construit sous forme d'objet).
+
+Accès à l'administration:
+URL: /admin/
+NOM D'UTILISATEUR: admin
+Mot de passe: mdp
